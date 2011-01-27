@@ -4,25 +4,18 @@ This software is a theme addin that allows you to display galleries of Kaltura h
 
 # Installation
 
-Download the latest version of the theme addin&mdash;Currently [version 0.0.1](https://github.com/kaltura/kaltura_galleries/zipball/v0.0.1).
-
-Unzip the `kaltura_galleries` folder into your theme's folder.
-
-Copy `kaltura_galleries/ksu-setting.sample.php` to `kaltura_galleries/ksu-settings.php` and add your kaltura credentials into `ksu-settings.php`.
-
-In your theme's functions.php, add the following at the end:
-
+1. Download the latest version of the theme addin&mdash;Currently [version 0.0.1](https://github.com/kaltura/kaltura_galleries/zipball/v0.0.1).
+2. Unzip the `kaltura_galleries` folder into your theme's folder.
+3. Copy `kaltura_galleries/ksu-setting.sample.php` to `kaltura_galleries/ksu-settings.php` and add your kaltura credentials into `ksu-settings.php`.
+4. In your theme's functions.php, add the following at the end:
     <?php 
       require_once(dirname(__FILE__) . "/kaltura_galleries/wp-functions.php");
     ?>
-
-Copy `kaltura_galleries/single-gallery.php` into your theme's root folder.
+5. Copy `kaltura_galleries/single-gallery.php` into your theme's root folder.
 
 # Usage
 
 Once you have successfully installed the addin, you will have a new custom post type on your main `wp-admin` page.  The galleries work by querying the Kaltura server to retreive all videos (up to 300) with a specific tag that you set on your videos in the Kaltura KMC.
-
-## Creating a Gallery
 
 1. Upload your media to the Kaltura server via the KMC or the `Upload a Video` button in an existing gallery.
 1. Once you're in your wordpress administration, click `Galleries` and then `Add New`.
