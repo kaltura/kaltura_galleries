@@ -8,9 +8,11 @@ This software is a theme addin that allows you to display galleries of Kaltura h
 2. Unzip the `kaltura_galleries` folder into your theme's folder.
 3. Copy `kaltura_galleries/ksu-setting.sample.php` to `kaltura_galleries/ksu-settings.php` and add your kaltura credentials into `ksu-settings.php`.
 4. In your theme's functions.php, add the following at the end:
+
     <?php 
       require_once(dirname(__FILE__) . "/kaltura_galleries/wp-functions.php");
     ?>
+
 5. Copy `kaltura_galleries/single-gallery.php` into your theme's root folder.
 
 # Usage
