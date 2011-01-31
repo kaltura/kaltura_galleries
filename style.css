@@ -93,9 +93,8 @@ div.thumbnail.selected{
 }
 
 #arrows {
-width:1090px;
-position:relative;
-left:-60px;
+  width:940px;
+  position:relative;
 }
 .arrow {
   cursor:pointer;
@@ -114,11 +113,12 @@ left:-60px;
 #down-arrow{
   position:relative;
   float:right;
-  top:-100px;
+  top:-110px;
+  right:10px;
 }
 #up-arrow{
   position:relative;
-  top:-270px;
+  top:-290px;
 }
 
 

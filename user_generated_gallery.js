@@ -206,7 +206,6 @@ Spinner.prototype.rotate = function () {
   var rotationDegrees = 0;
   var rotationStep = ( 360 / this.options.numberOfSpokes );
   var rotationTarget = document.querySelector( '#' + this.target + ' .spinner' );
-  console.log(this.target);
   var scale = this.options.size/100
   function step() {
     if (rotationDegrees>=360) { rotationDegrees = 0 };
@@ -247,8 +246,8 @@ init = function() {
 //window.onload = function(){ spinner = new Spinner('gallery', spinOpts);};
 var spinner;
 $(function(){
-  spinner = new Spinner('content', spinOpts);
+  //spinner = new Spinner('content', spinOpts);
   init();
-  setTimeout('spinner.remove()', 3000);
+  //setTimeout('spinner.remove()', 3000);
   $('#gallery').css("visibility","visible");
   });
