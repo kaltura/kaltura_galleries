@@ -19,7 +19,10 @@ if (isset($_GET['customTag']))
     //construct Kaltura objects for session initiation
     $config           = new KalturaConfiguration(KALTURA_PARTNER_ID);
     $client           = new KalturaClient($config);
-    $ks               = $client->session->start(KALTURA_PARTNER_WEB_SERVICE_ADMIN_SECRET, $partnerUserID, KalturaSessionType::ADMIN);
+    $ks               = $client->session->start(KALTURA_PARTNER_WEB_SERVICE_ADMIN_SECRET, KALTURA_PARTNER_ID, KalturaSessionType::ADMIN);
+    if (!isset($ks)) {
+      die("Could not establish Kaltura session.session Please verify that you are using valid Kaltura partner credentials.");
+    }
 
     $client->setKs($ks);
   
