@@ -88,12 +88,12 @@ var ksuflashVars = <?php echo json_encode($flashVars); ?>;
     </p>
 	</div>
 
-  <div id="gallery" style="visibility:hidden;position:relative;margin-left:auto;margin-right:auto">
+  <div id="gallery">
 
-    <div class="video-highlight box270">
+    <div class="video-highlight videobox">
         <div id="video-player"></div>
     </div>
-    <div class="infobox box270">
+    <div class="infobox videobox">
         <div id="video-description"></div>
     </div>
     <div id="thumbs-viewport">
