@@ -24,24 +24,6 @@ Template Name: Gallery Index
 
 <?php get_header(); ?>
 
-<!--[if IE]>
-<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
-<script type="text/javascript" src="http://html5.kaltura.org/js"></script>  
-<script src="http://apis.kaltura.org/kalturaJsClient/kaltura.min.js.php" language="javascript"></script>
-
-<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/kaltura_galleries/showdown.js"></script>
-
-<script type="text/javascript">
-// Kaltura Session Key and Partner ID are provided by PHP Kaltura Client on the Server
-var ks = "<?php echo $ks;?>";
-var kPartnerId = <?php echo KALTURA_PARTNER_ID ?>;
-</script>
-
-<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/kaltura_galleries/user_generated_gallery.js"></script>
-
 <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
 <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/style.css" type="text/css" media="screen" /> 
 <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/kaltura_galleries/style.css" type="text/css" media="screen" /> 
@@ -83,7 +65,7 @@ var kPartnerId = <?php echo KALTURA_PARTNER_ID ?>;
 			<div class="entry">
         <!-- here's everything we need to build this demonstration -->
         <script type="text/javascript">
-        var customTag = "<?php $key="custom_tag"; $sources = get_post_custom_values($key); echo $sources[0]; ?>";
+          var customTag = "<?php $sources = get_post_custom_values('gallery_tags'); echo $sources[0]; ?>";
         </script>
 				<?php the_content(); ?>
 			</div>
@@ -91,5 +73,23 @@ var kPartnerId = <?php echo KALTURA_PARTNER_ID ?>;
 	<?php endwhile; endif; ?>
 
 </div>
+
+<!--[if IE]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+<script type="text/javascript" src="http://html5.kaltura.org/js"></script>  
+<script src="http://apis.kaltura.org/kalturaJsClient/kaltura.min.js.php" language="javascript"></script>
+
+<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/kaltura_galleries/showdown.js"></script>
+
+<script type="text/javascript">
+// Kaltura Session Key and Partner ID are provided by PHP Kaltura Client on the Server
+var ks = "<?php echo $ks;?>";
+var kPartnerId = <?php echo KALTURA_PARTNER_ID; ?>;
+</script>
+
+<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/kaltura_galleries/user_generated_gallery.js"></script>
 
 <?php get_footer(); ?>
