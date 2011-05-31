@@ -13,7 +13,7 @@ This software is a theme addin that allows you to display galleries of Kaltura h
           require_once(dirname(__FILE__) . "/kaltura_galleries/wp-functions.php");
         ?>
 
-5. Copy `kaltura_galleries/single-gallery.php` into your theme's root folder.
+5. Copy `kaltura_galleries/single-videos.php` and `kaltura_galleries/videos.php` into your theme's root folder.
 
 # Usage
 
@@ -22,8 +22,8 @@ Once you have successfully installed the addin, you will have a new custom post 
 1. Upload your media to the Kaltura server via the KMC or the `Upload a Video` button in an existing gallery.
 1. Once you're in your wordpress administration, click `Galleries` and then `Add New`.
 2. Title your gallery and (optionally) add a text description of the gallery contents.
-3. Add a `Custom Field` to the gallery post with the name `custom_tag` and set the value of the custom field to the tag you set in the KMC.
-> You may insert more than one tag, comma separated, in the `custom_tag` field to make the gallery include all videos with any one of the tags you have placed in `custom_tag`.
+3. Add a `Custom Field` to the gallery post with the name `gallery_tags` and set the value of the custom field to the tag you set in the KMC.
+> You may insert more than one tag, comma separated, in the `gallery_tags` field to make the gallery include all videos with any one of the tags you have placed in `gallery_tags`.
 
 # Troubleshooting
 

@@ -32,7 +32,7 @@ Template Name: Gallery Index
   <div>
 		<?php 
 			global $post;
-			$myposts = get_posts('post_type=gallery&orderby=parent');
+			$myposts = get_posts('post_type=videos&orderby=parent');
 		?>
 		<ul id="gallery-tabs">
 		<?php foreach($myposts as $post): ?>
@@ -65,7 +65,8 @@ Template Name: Gallery Index
 			<div class="entry">
         <!-- here's everything we need to build this demonstration -->
         <script type="text/javascript">
-          var customTag = "<?php $sources = get_post_custom_values('gallery_tags'); echo $sources[0]; ?>";
+		  var customTag = "<?php $sources = get_post_custom_values('gallery_tags'); echo $sources[0]; ?>",
+		  wpThemeURL = "<?php bloginfo('template_url'); ?>";
         </script>
 				<?php the_content(); ?>
 			</div>

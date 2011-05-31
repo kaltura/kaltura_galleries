@@ -1,3 +1,6 @@
+mw.setConfig("EmbedPlayer.EnableIframeApi", false);
+mw.setConfig('jQueryUISkin', 'kdark');
+
 // Console Trap!
 if (!window.console) {
   window.console = new function() {
@@ -35,7 +38,7 @@ function loadGalleryItems() {
   $.ajax({
     type: "GET",
     async: false,
-    url: "http://openvideoconference.org/wp-content/themes/ovcclassic/kaltura_galleries/get_gallery.php", 
+    url: wpThemeURL + "/kaltura_galleries/get_gallery.php", 
     data: ({ customTag: customTag }), 
     success: function(data){
       galleryItems = JSON.parse(data).objects;
@@ -92,24 +95,21 @@ function loadVideo(videoId){
   var text = converter.makeHtml(descriptionText);
   $('#video-description').html(text);
   previousDescription = text;
-
-  mw.ready( function(){
-    mw.load( 'EmbedPlayer', function(){
-      $j( '#video-player' ).html(
-        $j('<video />')
-          .css({
-            'width' : posterWidth,
-            'height' : posterHeight
-            })
-          .attr({
-            'kentryid' : galleryItems[videoId].id,
-            'kwidgetid' : kWidgetId,
-            'kpartnerid' : kPartnerId
-            })
-        );
-      // Rewrite all the players on the page
-      $j.embedPlayers();
-      });
+	mw.ready( function(){
+		mw.load( 'EmbedPlayer', function(){
+			if ( $j("#video-player_iframe") ) { $j( '#video-player_iframe' ).remove(); }
+			
+			kalturaIframeEmbed('video-player', {
+				entry_id: galleryItems[videoId].id,
+				wid: '_' + kPartnerId,
+				p: kPartnerId
+			}, {
+				width: posterWidth,
+				height: posterHeight
+			} );
+		  // Rewrite all the players on the page
+		  //$j.embedPlayers();
+		});
     });
   console.log("displaying " + galleryItems[videoId].name);
   }
