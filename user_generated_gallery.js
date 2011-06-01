@@ -139,7 +139,7 @@ function checkArrows(page) {
 var scrollFactor = thumbHeight*2;
 function scrollUp () {
   $('#thumbs-container').animate({
-    top: "+="+scrollFactor+"px",
+    top: "+="+scrollFactor+"px"
     }, 750);
   currentPage = currentPage - 1;
   checkArrows(currentPage);
