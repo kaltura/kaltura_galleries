@@ -147,7 +147,7 @@ function scrollUp () {
 
 function scrollDown () {
   $('#thumbs-container').animate({
-    top: "-="+scrollFactor+"px",
+    top: "-="+scrollFactor+"px"
     }, 750);
   currentPage = currentPage + 1;
   checkArrows(currentPage);
