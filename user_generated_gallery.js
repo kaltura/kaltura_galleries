@@ -29,26 +29,6 @@ var kWidgetId = "_22646",
     // customTag is set by single-gallery.php
 
 
-// Call up all published items in Kaltura account with the custom tag
-function loadGalleryItems() {
-  kConfig = new KalturaConfiguration(parseInt(kPartnerId));
-  kClient = new KalturaClient(kConfig);
-  kClient.setKs(ks);
-
-  $.ajax({
-    type: "GET",
-    async: false,
-    url: wpThemeURL + "/kaltura_galleries/get_gallery.php", 
-    data: ({ customTag: customTag }), 
-    success: function(data){
-      galleryItems = JSON.parse(data).objects;
-      galleryItems = galleryItems.sort(function(a,b){return b.rank-a.plays;});
-      galleryItems = galleryItems.sort(function(a,b){return b.plays-a.plays;});
-      totalPages = parseInt(galleryItems.length / 8) + 1;
-      if (galleryItems.length == 8) { totalPages = 1; }
-      }
-    });
-  }
 
 function displayGallery() {
   $.each( galleryItems, function( index, video ) {
@@ -167,9 +147,31 @@ function previewVideo(videoId){
   $('#video-description').html(text);
   }
 
+// Call up all published items in Kaltura account with the custom tag
+function loadGalleryItems() {
+  kConfig = new KalturaConfiguration(parseInt(kPartnerId));
+  kClient = new KalturaClient(kConfig);
+  kClient.setKs(ks);
+
+  $.ajax({
+    type: "GET",
+    async: false,
+    url: wpThemeURL + "/kaltura_galleries/get_gallery.php", 
+    data: ({ customTag: customTag }), 
+    success: function(data){
+      galleryItems = JSON.parse(data).objects;
+      galleryItems = galleryItems.sort(function(a,b){return b.rank-a.plays;});
+      galleryItems = galleryItems.sort(function(a,b){return b.plays-a.plays;});
+      totalPages = parseInt(galleryItems.length / 8) + 1;
+      if (galleryItems.length == 8) { totalPages = 1; }
+	displayGallery();
+	loadVideo(0);
+	checkArrows(currentPage);
+      }
+    });
+  }
 
 
-init = function() {
   /*
   $('#ksu').dialog({ title: "Upload a Video", 
                      autoOpen: false,
@@ -177,13 +179,8 @@ init = function() {
                      height: 450,});
                      */
 
-  loadGalleryItems();
-  displayGallery();
-  loadVideo(0);
-  checkArrows(currentPage);
-  }
 
 $(function(){
-  init();
+  loadGalleryItems();
   $('#gallery').css("visibility","visible");
   });

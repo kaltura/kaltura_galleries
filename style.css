@@ -1,7 +1,7 @@
-
 #nav li ul{
   z-index:-1;
-}
+  } 
+
  #content {
   width:940px;
   position:relative;
@@ -108,6 +108,7 @@ div.thumbnail.selected{
 
 .arrow a{
   text-decoration:none;
+  color:#ecdeaa
 }
 .arrow a:hover {
   color:#fff;
@@ -118,7 +119,7 @@ div.thumbnail.selected{
   position:relative;
   float:right;
   top:-110px;
-  right:10px;
+  right:-50px;
 }
 #up-arrow{
   position:relative;

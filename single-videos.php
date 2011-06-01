@@ -52,6 +52,12 @@ Template Name: Gallery Index
         <div id="video-description"></div>
     </div>
     <div id="thumbs-viewport">
+    	<!--[if lt IE 9]>
+	<style type="text/css">
+		.thumbnail { display:inline }
+		#nav {margin: 32px 0px 15px}
+	</style>
+	<![endif]-->
         <div id="thumbs-container"></div>
     </div>
     <div id="arrows">
@@ -78,6 +84,7 @@ Template Name: Gallery Index
 <!--[if IE]>
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
+<script type="text/javascript" src="https://github.com/douglascrockford/JSON-js/raw/master/json2.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
 <script type="text/javascript" src="http://html5.kaltura.org/js"></script>  
