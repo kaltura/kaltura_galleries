@@ -153,10 +153,12 @@ function loadGalleryItems() {
   kClient = new KalturaClient(kConfig);
   kClient.setKs(ks);
 
+	var galleryURL;
+	if (!wpThemeURL) { galleryURL ="get_gallery.php"; } else { galleryURL = wpThemeURL + "/kaltura_galleries/get_gallery.php"; }
   $.ajax({
     type: "GET",
     async: false,
-    url: wpThemeURL + "/kaltura_galleries/get_gallery.php", 
+    url: galleryURL, 
     data: ({ customTag: customTag }), 
     success: function(data){
       galleryItems = JSON.parse(data).objects;
